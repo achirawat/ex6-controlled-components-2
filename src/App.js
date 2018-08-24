@@ -16,7 +16,7 @@ class App extends React.Component {
     event.preventDefault();
     this.setState(oldState => ({
       items: [...oldState.items, this.state.value],
-    }));
+     }));
   };
 
   deleteLastItem = event => {
