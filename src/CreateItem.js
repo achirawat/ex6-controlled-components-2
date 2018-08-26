@@ -8,14 +8,16 @@ class CreateItem extends Component {
 
     handleChange = event => {
         this.setState({ value: event.target.value });
-      };
+    };
     
     addItem = event => {
         event.preventDefault();
-        this.setState(oldState => ({
-          items: [...oldState.items, this.state.value],
-        }));
-      };
+        this.props.onAddItem(this.state.value);
+    };
+
+    inputIsEmpty = () => {
+        return this.state.value === '';
+    };
 
     render() {
         return(
@@ -33,3 +35,9 @@ class CreateItem extends Component {
         );
     }
 }
+
+CreateItem.propTypes = {
+    onAddItem: PropTypes.func.isRequired,
+};
+
+export default CreateItem;
